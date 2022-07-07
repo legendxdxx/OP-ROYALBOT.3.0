@@ -5,12 +5,12 @@ from pathlib import Path
 from telethon import events
 
 from .session import H2, H3, H4, H5
-from hellbot import CMD_LIST, LOAD_PLUG, bot
-from hellbot.config import Config
-from hellbot.sql.gvar_sql import gvarstat
+from royalbot import CMD_LIST, LOAD_PLUG, bot
+from royalbot.config import Config
+from royalbot.sql.gvar_sql import gvarstat
 
 
-def hell_cmd(
+def royal_cmd(
     pattern: str = None,
     allow_sudo: bool = True,
     disable_edited: bool = False,
@@ -35,25 +35,25 @@ def hell_cmd(
     sudo_user = Config.SUDO_USERS
 
     if pattern is not None:
-        global hell_reg
+        global royal_reg
         global sudo_reg
         if (
             pattern.startswith(r"\#")
             or not pattern.startswith(r"\#")
             and pattern.startswith(r"^")
         ):
-            hell_reg = sudo_reg = re.compile(pattern)
+            royal_reg = sudo_reg = re.compile(pattern)
         else:
-            hell_ = "\\" + Config.HANDLER
+            royal_ = "\\" + Config.HANDLER
             sudo_ = "\\" + Config.SUDO_HANDLER
-            hell_reg = re.compile(hell_ + pattern)
+            royal_reg = re.compile(royal_ + pattern)
             sudo_reg = re.compile(sudo_ + pattern)
             if command is not None:
-                cmd1 = hell_ + command
+                cmd1 = royal_ + command
                 cmd2 = sudo_ + command
             else:
                 cmd1 = (
-                    (hell_ + pattern).replace("$", "").replace("\\", "").replace("^", "")
+                    (royal_ + pattern).replace("$", "").replace("\\", "").replace("^", "")
                 )
                 cmd2 = (
                     (sudo_ + pattern).replace("$", "").replace("\\", "").replace("^", "")
@@ -66,28 +66,28 @@ def hell_cmd(
 
     def decorator(func):
         if not disable_edited:
-            bot.add_event_handler(func, events.MessageEdited(**args, outgoing=True, pattern=hell_reg))
-        bot.add_event_handler(func, events.NewMessage(**args, outgoing=True, pattern=hell_reg))
+            bot.add_event_handler(func, events.MessageEdited(**args, outgoing=True, pattern=royal_reg))
+        bot.add_event_handler(func, events.NewMessage(**args, outgoing=True, pattern=royal_reg))
         if allow_sudo:
             if not disable_edited:
                 bot.add_event_handler(func, events.MessageEdited(**args, from_users=sudo_user, pattern=sudo_reg))
             bot.add_event_handler(func, events.NewMessage(**args, from_users=sudo_user, pattern=sudo_reg))
         if H2:
             if not disable_edited:
-                H2.add_event_handler(func, events.MessageEdited(**args, outgoing=True, pattern=hell_reg))
-            H2.add_event_handler(func, events.NewMessage(**args, outgoing=True, pattern=hell_reg))
+                H2.add_event_handler(func, events.MessageEdited(**args, outgoing=True, pattern=royal_reg))
+            H2.add_event_handler(func, events.NewMessage(**args, outgoing=True, pattern=royal_reg))
         if H3:
             if not disable_edited:
-                H3.add_event_handler(func, events.MessageEdited(**args, outgoing=True, pattern=hell_reg))
-            H3.add_event_handler(func, events.NewMessage(**args, outgoing=True, pattern=hell_reg))
+                H3.add_event_handler(func, events.MessageEdited(**args, outgoing=True, pattern=royal_reg))
+            H3.add_event_handler(func, events.NewMessage(**args, outgoing=True, pattern=royal_reg))
         if H4:
             if not disable_edited:
-                H4.add_event_handler(func, events.MessageEdited(**args, outgoing=True, pattern=hell_reg))
-            H4.add_event_handler(func, events.NewMessage(**args, outgoing=True, pattern=hell_reg))
+                H4.add_event_handler(func, events.MessageEdited(**args, outgoing=True, pattern=royal_reg))
+            H4.add_event_handler(func, events.NewMessage(**args, outgoing=True, pattern=royal_reg))
         if H5:
             if not disable_edited:
-                H5.add_event_handler(func, events.MessageEdited(**args, outgoing=True, pattern=hell_reg))
-            H5.add_event_handler(func, events.NewMessage(**args, outgoing=True, pattern=hell_reg))
+                H5.add_event_handler(func, events.MessageEdited(**args, outgoing=True, pattern=royal_reg))
+            H5.add_event_handler(func, events.NewMessage(**args, outgoing=True, pattern=royal_reg))
         try:
             LOAD_PLUG[file_test].append(func)
         except Exception:
@@ -97,7 +97,7 @@ def hell_cmd(
     return decorator
 
 
-def hell_handler(
+def royal_handler(
     **args,
 ):
     def decorator(func):
