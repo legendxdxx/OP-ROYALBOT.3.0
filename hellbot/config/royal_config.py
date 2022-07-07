@@ -1,6 +1,6 @@
 # IF YOU ARE HOSTING BOT ON OTHER VPS OR LOCALLY RATHER THAN HEROKU
 # THEN DON'T EDIT THIS FILE.
-# GO AND EDIT ex_config.py AND RENAME IT TO config.py
+# GO AND EDIT royal_config.py AND RENAME IT TO config.py
 # AND FILL THE REQUIRED VARS THERE.
 
 
@@ -42,8 +42,8 @@ class Config(object):
         LOGGER_ID = int(LOGGER_ID)
     MAX_MESSAGE_SIZE_LIMIT = 4095
     MAX_SPAM = int(os.environ.get("MAX_SPAM", 3))
-    MY_CHANNEL = os.environ.get("YOUR_CHANNEL", "Its_HellBot")
-    MY_GROUP = os.environ.get("YOUR_GROUP", "HellBot_Chat")
+    MY_CHANNEL = os.environ.get("YOUR_CHANNEL", "ROYALYSERBOT")
+    MY_GROUP = os.environ.get("YOUR_GROUP", "ROYALUBOT_SUPPORT")
     OCR_API = os.environ.get("OCR_API", None)
     PLUGIN_CHANNEL = os.environ.get("PLUGIN_CHANNEL", None)
     if PLUGIN_CHANNEL:
@@ -65,9 +65,9 @@ class Config(object):
         TAG_LOGGER = int(TAG_LOGGER)
     TEMP_DIR = os.environ.get("TEMP_DIR", None)
     TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
-    THUMB_IMG = os.environ.get("THUMB_IMG", "./hellbot/resources/pics/hellbot_logo.jpg")
+    THUMB_IMG = os.environ.get("THUMB_IMG", "./hellbot/resources/pics/royalbot_logo.jpg")
     UNLOAD = list(os.environ.get("UNLOAD", "").split())
-    UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/The-HellBot/HellBot")
+    UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/legendxdxx/Userbot")
     WEATHER_API = os.environ.get("WEATHER_API", None)
 
 
