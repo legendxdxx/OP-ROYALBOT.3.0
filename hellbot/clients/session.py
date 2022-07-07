@@ -4,16 +4,16 @@ from telethon import TelegramClient
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sessions import StringSession
 
-from hellbot.config import Config
+from royalbot.config import Config
 
 
-if Config.HELLBOT_SESSION:
-    session = StringSession(str(Config.HELLBOT_SESSION))
+if Config.ROYALBOT_SESSION:
+    session = StringSession(str(Config.ROYALBOT_SESSION))
 else:
-    session = "hellbot"
+    session = "Royalbot"
 
 try:
-    Hell = TelegramClient(
+    Royal = TelegramClient(
         session=session,
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
@@ -22,13 +22,13 @@ try:
         connection_retries=None,
     )
 except Exception as e:
-    print(f"HELLBOT_SESSION - {e}")
+    print(f"ROYALBOT_SESSION - {e}")
     sys.exit()
 
 
 if Config.SESSION_2:
     session2 = StringSession(str(Config.SESSION_2))
-    H2 = TelegramClient(
+    R2 = TelegramClient(
         session=session2,
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
@@ -37,12 +37,12 @@ if Config.SESSION_2:
         connection_retries=None,
     )
 else:
-    H2 = None
+    R2 = None
 
 
 if Config.SESSION_3:
     session3 = StringSession(str(Config.SESSION_3))
-    H3 = TelegramClient(
+    R3 = TelegramClient(
         session=session3,
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
@@ -51,12 +51,12 @@ if Config.SESSION_3:
         connection_retries=None,
     )
 else:
-    H3 = None
+    R3 = None
 
 
 if Config.SESSION_4:
     session4 = StringSession(str(Config.SESSION_4))
-    H4 = TelegramClient(
+    R4 = TelegramClient(
         session=session4,
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
@@ -65,12 +65,12 @@ if Config.SESSION_4:
         connection_retries=None,
     )
 else:
-    H4 = None
+    R4 = None
 
 
 if Config.SESSION_5:
     session5 = StringSession(str(Config.SESSION_5))
-    H5 = TelegramClient(
+    R5 = TelegramClient(
         session=session5,
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
@@ -79,11 +79,11 @@ if Config.SESSION_5:
         connection_retries=None,
     )
 else:
-    H5 = None
+    R5 = None
 
 
-HellBot = TelegramClient(
-    session="Hell-TBot",
+Royalbot = TelegramClient(
+    session="Royal-TBot",
     api_id=Config.APP_ID,
     api_hash=Config.API_HASH,
     connection=ConnectionTcpAbridged,
