@@ -1,2 +1,2 @@
-from hellbot.assistant import *
-from hellbot.helpers import *
+from royalbot.assistant import *
+from royalbot.helpers import *
