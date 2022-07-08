@@ -3,41 +3,41 @@ from .formats import yaml_format
 
 
 async def mediadata(e_media):
-    hell = ""
+    royal = ""
     if e_media.file.name:
-        hell += f"📍 NAME :  {e_media.file.name}<br>"
+        royal += f"📌 NAME :  {e_media.file.name}<br>"
     if e_media.file.mime_type:
-        hell += f"📍 MIME TYPE :  {e_media.file.mime_type}<br>"
+        royal += f"📌 MIME TYPE :  {e_media.file.mime_type}<br>"
     if e_media.file.size:
-        hell += f"📍 SIZE :  {humanbytes(e_media.file.size)}<br>"
+        royal += f"📌 SIZE :  {humanbytes(e_media.file.size)}<br>"
     if e_media.date:
-        hell += f"📍 DATE :  {yaml_format(e_media.date)}<br>"
+        royal += f"📌 DATE :  {yaml_format(e_media.date)}<br>"
     if e_media.file.id:
-        hell += f"📍 ID :  {e_media.file.id}<br>"
+        royal += f"📌 ID :  {e_media.file.id}<br>"
     if e_media.file.ext:
-        hell += f"📍 EXTENSION :  '{e_media.file.ext}'<br>"
+        royal += f"📌 EXTENSION :  '{e_media.file.ext}'<br>"
     if e_media.file.emoji:
-        hell += f"📍 EMOJI :  {e_media.file.emoji}<br>"
+        royal += f"📌 EMOJI :  {e_media.file.emoji}<br>"
     if e_media.file.title:
-        hell += f"📍 TITLE :  {e_media.file.title}<br>"
+        royal += f"📌 TITLE :  {e_media.file.title}<br>"
     if e_media.file.performer:
-        hell += f"📍 PERFORMER :  {e_media.file.performer}<br>"
+        royal += f"📌 PERFORMER :  {e_media.file.performer}<br>"
     if e_media.file.duration:
-        hell += f"📍 DURATION :  {e_media.file.duration} seconds<br>"
+        royal += f"📌 DURATION :  {e_media.file.duration} seconds<br>"
     if e_media.file.height:
-        hell += f"📍 HEIGHT :  {e_media.file.height}<br>"
+        royal += f"📌 HEIGHT :  {e_media.file.height}<br>"
     if e_media.file.width:
-        hell += f"📍 WIDTH :  {e_media.file.width}<br>"
+        royal += f"📌 WIDTH :  {e_media.file.width}<br>"
     if e_media.file.sticker_set:
-        hell += f"📍 STICKER SET :\
+        royal += f"📌 STICKER SET :\
             \n {yaml_format(e_media.file.sticker_set)}<br>"
     try:
         if e_media.media.document.thumbs:
-            hell += f"📍 Thumb  :\
+            royal += f"📌 Thumb  :\
                 \n {yaml_format(e_media.media.document.thumbs[-1])}<br>"
     except Exception as e:
         LOGS.info(str(e))
-    return hell
+    return royal
 
 
 def media_type(message):
