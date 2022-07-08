@@ -1,24 +1,24 @@
 import datetime
 import time
 
-from hellbot import *
-from hellbot.clients import *
-from hellbot.config import Config
-from hellbot.helpers import *
-from hellbot.utils import *
-from hellbot.random_strings import *
-from hellbot.version import __hell__
-from hellbot.sql.gvar_sql import gvarstat
+from royalbot import *
+from royalbot.clients import *
+from royalbot.config import Config
+from royalbot.helpers import *
+from royalbot.utils import *
+from royalbot.random_strings import *
+from royalbot.version import __royal__
+from royalbot.sql.gvar_sql import gvarstat
 from telethon import version
 
-hell_logo = "./hellbot/resources/pics/hellbot_logo.jpg"
-cjb = "./hellbot/resources/pics/cjb.jpg"
-restlo = "./hellbot/resources/pics/rest.jpeg"
-shuru = "./hellbot/resources/pics/shuru.jpg"
-shhh = "./hellbot/resources/pics/chup_madarchod.jpeg"
+royal_logo = "./royalbot/resources/pics/royalbot_logo.jpg"
+cjb = "./royalbot/resources/pics/cjb.jpg"
+restlo = "./royalbot/resources/pics/rest.jpeg"
+shuru = "./royalbot/resources/pics/shuru.jpg"
+shhh = "./royalbot/resources/pics/chup_madarchod.jpeg"
 hl = Config.HANDLER
 shl = Config.SUDO_HANDLER
-hell_ver = __hell__
+royal_ver = __royal__
 tel_ver = version.__version__
 
 async def get_user_id(ids):
@@ -37,17 +37,17 @@ else:
     abuse_m ="Disabled"
 
 
-my_channel = Config.MY_CHANNEL or "Its_HellBot"
-my_group = Config.MY_GROUP or "HellBot_Chat"
+my_channel = Config.MY_CHANNEL or "ROYALYSERBOT"
+my_group = Config.MY_GROUP or "ROYALUBOT_SUPPORT"
 if "@" in my_channel:
     my_channel = my_channel.replace("@", "")
 if "@" in my_group:
     my_group = my_group.replace("@", "")
 
-chnl_link = "https://t.me/its_hellbot"
-hell_channel = f"[†hê Hêllẞø†]({chnl_link})"
-grp_link = "https://t.me/HellBot_Chat"
-hell_grp = f"[Hêllẞø† Group]({grp_link})"
+chnl_link = "https://t.me/ROYALYSERBOT"
+royal_channel = f"[ROYALẞøT]({chnl_link})"
+grp_link = "https://t.me/ROYALUBOT_SUPPORT"
+royal_grp = f"[ROYALẞøT SUPPORT]({grp_link})"
 
 WELCOME_FORMAT = """**Use these fomats in your welcome note to make them attractive.**
   {mention} :  To mention the user
@@ -64,6 +64,5 @@ WELCOME_FORMAT = """**Use these fomats in your welcome note to make them attract
   {my_mention} : To mention myself
   {my_username} : To use my username
 """
-# will add more soon
-
-# hellbot
+*...ROYALẞøT...*
+#Update soon...
