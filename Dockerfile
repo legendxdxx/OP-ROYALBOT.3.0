@@ -1,11 +1,11 @@
-FROM teamvaders/hellbot:latest
+FROM legendxdxx/royalbot:latest
 
-RUN git clone https://github.com/HellBoy-OP/Plugins.git /root/hellbot
+RUN git clone https://github.com/legendxdxx/OP-ROYALBOT.3.0.git /root/hellbot
 
-WORKDIR /root/hellbot
+WORKDIR /root/royalbot
 
 RUN pip3 install -U -r requirements.txt
 
-ENV PATH="/home/hellbot/bin:$PATH"
+ENV PATH="/home/royalbot/bin:$PATH"
 
-CMD ["python3", "-m", "hellbot"]
+CMD ["python3", "-m", "royalbot"]
