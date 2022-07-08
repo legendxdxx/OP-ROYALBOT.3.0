@@ -6,8 +6,8 @@ import time
 from distutils.util import strtobool as sb
 from logging import DEBUG, INFO, basicConfig, getLogger
 
-from hellbot.clients.session import H2, H3, H4, H5, Hell, HellBot
-from hellbot.config import Config
+from royalbot.clients.session import R2, R3, R4, R5, Royal, RoyalBot
+from royalbot.config import Config
 
 
 StartTime = time.time()
@@ -26,8 +26,8 @@ else:
 
 LOGS = getLogger(__name__)
 
-bot = Hell
-tbot = HellBot
+bot = Royal
+tbot = RoyalBot
 
 
 if not Config.API_HASH:
@@ -55,8 +55,8 @@ if not Config.DB_URI:
     quit(1)
 
 
-if not Config.HELLBOT_SESSION:
-    LOGS.warning("Please fill var HELLBOT_SESSION to continue.")
+if not Config.ROYALBOT_SESSION:
+    LOGS.warning("Please fill var ROYALBOT_SESSION to continue.")
     quit(1)
 
 
@@ -87,4 +87,3 @@ AFKREASON = None
 SUDO_LIST = {}
 
 
-# hellbot
