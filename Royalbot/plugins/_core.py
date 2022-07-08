@@ -35,7 +35,7 @@ async def kk(event):
 
 <b><a href='https://t.me/ROYALYSERBOT'>@ROYALUBOT_SUPPORT</a></b>
 """
-    royal = await telegraph_paste("All available plugins in Hêllẞø†", OUTPUT)
+    royal = await telegraph_paste("All available plugins in ROYALẞøT", OUTPUT)
     await eor(event, f"[All available plugins in ROYALẞøT]({royal})", link_preview=False)
 
 
