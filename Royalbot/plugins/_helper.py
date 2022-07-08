@@ -8,39 +8,39 @@ from telethon.errors.rpcerrorlist import BotMethodInvalidError as dedbot, BotInl
 from . import *
 
 msg = f"""
-**⚡ ʟɛɢɛռɖaʀʏ ᴀғ ɦɛʟʟɮօt ⚡**
-  •        [📑 Repo 📑](https://github.com/The-HellBot/HellBot)
-  •        [HellBot Network](https://t.me/hellbot_network)
-  •  ©️ {hell_channel} ™
+**⚡ ʟɛɢɛռɖaʀʏ ᴀғ ROYALẞøT ⚡**
+  •        [📑 Repo 📑](https://github.com/legendxdxx/OP-ROYALBOT.3.0)
+  •        [ROYALẞøT Network](https://t.me/ROYALUBOT_SUPPORT)
+  •  ©️ {royal_channel} ™
 """
 botname = Config.BOT_USERNAME
 
-@hell_cmd(pattern="repo$")
+@royal_cmd(pattern="repo$")
 async def repo(event):
     cids = await client_id(event)
-    ForGo10God, HELL_USER, hell_mention = cids[0], cids[1], cids[2]
+    ForGo10God, ROYAL_USER, royal_mention = cids[0], cids[1], cids[2]
     try:
-        hell = await event.client.inline_query(botname, "repo")
-        await hell[0].click(event.chat_id)
+        royal = await event.client.inline_query(botname, "repo")
+        await royal[0].click(event.chat_id)
         if event.sender_id == ForGo10God:
             await event.delete()
     except (noin, dedbot):
         await eor(event, msg)
 
 
-@hell_cmd(pattern="help$")
+@royal_cmd(pattern="help$")
 async def _(event):
     tgbotusername = Config.BOT_USERNAME
     chat = "@Botfather"
     if tgbotusername is not None:
         try:
-            results = await event.client.inline_query(tgbotusername, "hellbot_help")
+            results = await event.client.inline_query(tgbotusername, "royalbot_help")
             await results[0].click(
                 event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
             )
             await event.delete()
         except noinline:
-            hell = await eor(event, "**Inline Mode is disabled.** \n__Turning it on, please wait for a minute...__")
+            royal = await eor(event, "**Inline Mode is disabled.** \n__Turning it on, please wait for a minute...__")
             async with bot.conversation(chat) as conv:
                 try:
                     first = await conv.send_message("/setinline")
@@ -51,8 +51,8 @@ async def _(event):
                     sixth = await conv.get_response()
                     await bot.send_read_acknowledge(conv.chat_id)
                 except YouBlockedUserError:
-                    return await hell.edit("Unblock @Botfather first.")
-                await hell.edit(f"**Turned On Inline Mode Successfully.** \n\nDo `{hl}help` again to get the help menu.")
+                    return await royal.edit("Unblock @Botfather first.")
+                await royal.edit(f"**Turned On Inline Mode Successfully.** \n\nDo `{hl}help` again to get the help menu.")
             await bot.delete_messages(
                 conv.chat_id, [first.id, second.id, third.id, fourth.id, fifth.id, sixth.id]
             )
@@ -60,8 +60,8 @@ async def _(event):
         await eor(event, "**⚠️ ERROR !!** \nPlease Re-Check BOT_TOKEN & BOT_USERNAME on Heroku.")
 
 
-@hell_cmd(pattern="plinfo(?:\s|$)([\s\S]*)")
-async def hellbott(event):
+@royal_cmd(pattern="plinfo(?:\s|$)([\s\S]*)")
+async def royalbot(event):
     args = event.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
@@ -87,7 +87,7 @@ async def hellbott(event):
         await eor(event, "Please Specify A Module Name Of Which You Want Info" + "\n\n" + string)
 
 
-@hell_cmd(pattern="cmdinfo(?:\s|$)([\s\S]*)")
+@royal_cmd(pattern="cmdinfo(?:\s|$)([\s\S]*)")
 async def cmdinfo(event):
     cmd = (event.text[9:]).lower()
     try:
