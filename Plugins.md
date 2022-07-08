@@ -1,4 +1,4 @@
-# Follow this format to make your own plugin for HellBot.
+# Follow this format to make your own plugin in ROYALẞøT.
 
 ```python3
 """
@@ -8,7 +8,7 @@ A sample code to display hello without taking input.
 from . import *
 
 # assigning command
-@hell_cmd(pattern="hii$")
+@royal_cmd(pattern="hii$")
 async def hi(event):
     # command body
     await eor(event, "Hello!")
@@ -28,7 +28,7 @@ A sample code to display hello with input.
 from . import *
 
 # assigning command
-@hell_cmd(pattern="hii(?:\s|$)([\s\S]*)")
+@royal_cmd(pattern="hii(?:\s|$)([\s\S]*)")
 async def hi(event):
     # command body
     _input = event.pattern_match.group(1)
