@@ -40,11 +40,10 @@ async def mirror_file(imagefile, endname):
 
 
 # sun kissed... 
-# print("Agar Suraj ne sachme chum lia to gand fatt jaegi")
+# print("dimag hai kya lode tujhe")
 async def solarize(imagefile, endname):
     image = Image.open(imagefile)
     inverted_image = PIL.ImageOps.solarize(image, threshold=128)
     inverted_image.save(endname)
 
 
-# hellbot
