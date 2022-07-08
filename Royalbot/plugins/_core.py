@@ -11,14 +11,14 @@ from telethon.tl.types import InputMessagesFilterDocument
 from . import *
 
 
-@hell_cmd(pattern="cmds$")
+@royal_cmd(pattern="cmds$")
 async def kk(event):
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
     cids = await client_id(event)
-    ForGo10God, HELL_USER, hell_mention = cids[0], cids[1], cids[2]
-    cmd = "ls hellbot/plugins"
+    ForGo10God, ROYAL_USER, royal_mention = cids[0], cids[1], cids[2]
+    cmd = "ls royalbot/plugins"
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
@@ -27,27 +27,27 @@ async def kk(event):
     _o = o.split("\n")
     o = "\n".join(_o)
     OUTPUT = f"""
-<h1>List of Plugins in Hêllẞø†:</h1>
+<h1>List of Plugins in ROYALẞøT:</h1>
 
 <code>{o}</code>
 
 <b><i>HELP:</b></i> <i>If you want to know the commands for a plugin, do “ .plinfo <plugin name> ”
 
-<b><a href='https://t.me/its_hellbot'>@Its_HellBot</a></b>
+<b><a href='https://t.me/ROYALYSERBOT'>@ROYALUBOT_SUPPORT</a></b>
 """
-    hell = await telegraph_paste("All available plugins in Hêllẞø†", OUTPUT)
-    await eor(event, f"[All available plugins in Hêllẞø†]({hell})", link_preview=False)
+    royal = await telegraph_paste("All available plugins in Hêllẞø†", OUTPUT)
+    await eor(event, f"[All available plugins in ROYALẞøT]({royal})", link_preview=False)
 
 
-@hell_cmd(pattern="send ([\s\S]*)")
+@royal_cmd(pattern="send ([\s\S]*)")
 async def send(event):
     cids = await client_id(event)
-    ForGo10God, HELL_USER, hell_mention = cids[0], cids[1], cids[2]
+    ForGo10God, ROYAL_USER, royal_mention = cids[0], cids[1], cids[2]
     message_id = event.reply_to_msg_id or event.message.id
-    thumb = hell_logo
+    thumb = royal_logo
     input_str = event.pattern_match.group(1)
-    omk = f"**• Plugin name ≈** `{input_str}`\n**• Uploaded by ≈** {hell_mention}\n\n⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ ɦɛʟʟɮօt]({chnl_link})** ⚡"
-    the_plugin_file = "./hellbot/plugins/{}.py".format(input_str.lower())
+    omk = f"**• Plugin name ≈** `{input_str}`\n**• Uploaded by ≈** {royal_mention}\n\n⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ ROYALẞøT]({chnl_link})** ⚡"
+    the_plugin_file = "./royalbot/plugins/{}.py".format(input_str.lower())
     if os.path.exists(the_plugin_file):
         await event.client.send_file(
             event.chat_id,
@@ -63,18 +63,18 @@ async def send(event):
         await eod(event, "File not found..... Kek")
 
 
-@hell_cmd(pattern="install(?:\s|$)([\s\S]*)")
+@royal_cmd(pattern="install(?:\s|$)([\s\S]*)")
 async def install(event):
     cids = await client_id(event)
-    ForGo10God, HELL_USER, hell_mention = cids[0], cids[1], cids[2]
+    ForGo10God, ROYAL_USER, royal_mention = cids[0], cids[1], cids[2]
     b = 1
     owo = event.text[9:]
-    hell = await eor(event, "__Installing.__")
+    royal = await eor(event, "__Installing.__")
     if event.reply_to_msg_id:
         try:
             downloaded_file_name = await event.client.download_media(  # pylint:disable=E0602
                 await event.get_reply_message(),
-                "./hellbot/plugins/"  # pylint:disable=E0602
+                "./royalbot/plugins/"  # pylint:disable=E0602
             )
             if owo != "-f":
                 op = open(downloaded_file_name, "r")
@@ -84,7 +84,7 @@ async def install(event):
                     for harm in HARMFUL:
                         if harm in rd:
                             os.remove(downloaded_file_name)
-                            return await hell.edit(f"**⚠️ WARNING !!** \n\n__Replied plugin file contains some harmful codes. Please consider checking the file. If you still want to install then use__ `{hl}install -f`. \n\n**Codes Detected :** \n• {harm}")
+                            return await royal.edit(f"**⚠️ WARNING !!** \n\n__Replied plugin file contains some harmful codes. Please consider checking the file. If you still want to install then use__ `{hl}install -f`. \n\n**Codes Detected :** \n• {harm}")
                 except BaseException:
                     pass
             if "(" not in downloaded_file_name:
@@ -102,33 +102,33 @@ async def install(event):
                         else:
                             a = "__Installing...__"
                             b = 1
-                        await hell.edit(a)
-                    return await hell.edit(f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {hell_mention}\n\n{string}\n\n        ⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ ɦɛʟʟɮօt]({chnl_link})** ⚡", link_preview=False)
-                return await hell.edit(f"Installed module `{os.path.basename(downloaded_file_name)}`")
+                        await royal.edit(a)
+                    return await royal.edit(f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {royal_mention}\n\n{string}\n\n        ⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ ɦɛʟʟɮօt]({chnl_link})** ⚡", link_preview=False)
+                return await royal.edit(f"Installed module `{os.path.basename(downloaded_file_name)}`")
             else:
                 os.remove(downloaded_file_name)
-                return await eod(hell, f"**Failed to Install** \n`Error`\nModule already installed or unknown format")
+                return await eod(royal, f"**Failed to Install** \n`Error`\nModule already installed or unknown format")
         except Exception as e: 
-            await eod(hell, f"**Failed to Install** \n`Error`\n{str(e)}")
+            await eod(royal, f"**Failed to Install** \n`Error`\n{str(e)}")
             return os.remove(downloaded_file_name)
 
 
-@hell_cmd(pattern="uninstall ([\s\S]*)")
+@royal_cmd(pattern="uninstall ([\s\S]*)")
 async def uninstall(event):
     shortname = event.text[11:]
     if ".py" in shortname:
         shortname = shortname.replace(".py", "")
-    hell = await eor(event, f"__Trying to uninstall plugin__ `{shortname}` ...")
-    dir_path =f"./hellbot/plugins/{shortname}.py"
+    royal = await eor(event, f"__Trying to uninstall plugin__ `{shortname}` ...")
+    dir_path =f"./royalbot/plugins/{shortname}.py"
     try:
         remove_plugin(shortname)
         os.remove(dir_path)
-        await eod(hell, f"**Uninstalled plugin** `{shortname}` **successfully.**")
+        await eod(royal, f"**Uninstalled plugin** `{shortname}` **successfully.**")
     except OSError as e:
-        await eod(hell, f"**Error !!** \n\n`{dir_path}` : __{e.strerror}__")
+        await eod(royal, f"**Error !!** \n\n`{dir_path}` : __{e.strerror}__")
 
 
-@hell_cmd(pattern="unload ([\s\S]*)")
+@royal_cmd(pattern="unload ([\s\S]*)")
 async def unload(event):
     shortname = event.pattern_match["shortname"]
     try:
@@ -142,7 +142,7 @@ async def unload(event):
         )
 
 
-@hell_cmd(pattern="load ([\s\S]*)")
+@royal_cmd(pattern="load ([\s\S]*)")
 async def load(event):
     shortname = event.pattern_match["shortname"]
     try:
@@ -158,9 +158,9 @@ async def load(event):
         )
 
 CmdHelp("core").add_command(
-  "install", "<reply to a .py file>", "Installs the replied python file if suitable to Hêllẞø†'s codes.`\n**🚩 Flags :** `-f"
+  "install", "<reply to a .py file>", "Installs the replied python file if suitable to ROYALẞøT codes.`\n**🚩 Flags :** `-f"
 ).add_command(
-  "uninstall", "<plugin name>", "Uninstalls the given plugin from Hêllẞø†. To get that again do .restart", "uninstall alive"
+  "uninstall", "<plugin name>", "Uninstalls the given plugin from ROYALẞøT. To get that again do .restart", "uninstall alive"
 ).add_command(
   "load", "<plugin name>", "Loades the unloaded plugin to your userbot", "load alive"
 ).add_command(
@@ -168,7 +168,7 @@ CmdHelp("core").add_command(
 ).add_command(
   "send", "<file name>", "Sends the given file from your userbot server, if any.", "send alive"
 ).add_command(
-  "cmds", None, "Gives out the list of modules in HellBot."
+  "cmds", None, "Gives out the list of modules in ROYALẞøT."
 ).add_command(
   "repo", None, "Gives HellBot's Github repo link."
 ).add_command(
