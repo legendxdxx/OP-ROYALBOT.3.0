@@ -3,8 +3,8 @@ import re
 
 from telethon import events
 
-from hellbot import bot
-from hellbot.config import Config
+from royalbot import bot
+from royalbot.config import Config
 
 
 # forward check
@@ -35,7 +35,7 @@ def iadmin():
                 await func(event)
             else:
                 await event.edit(
-                    "I'm not admin. Chutíya sala."
+                    "I'm not admin LoL. Chutíya sala."
                 )
 
         return wrapper
@@ -90,4 +90,4 @@ def no_grp():
     return decorator
 
 
-# hellbot
+# royalbot
