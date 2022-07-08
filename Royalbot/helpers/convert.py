@@ -22,16 +22,16 @@ dwlpath = Config.TMP_DOWNLOAD_DIRECTORY
 
 # make a image
 async def convert_to_image(event, client):
-    hell = await event.get_reply_message()
+    royal = await event.get_reply_message()
     if not (
-            hell.gif
-            or hell.audio
-            or hell.voice
-            or hell.video
-            or hell.video_note
-            or hell.photo
-            or hell.sticker
-            or hell.media
+            royal.gif
+            or royal.audio
+            or royal.voice
+            or royal.video
+            or royal.video_note
+            or royal.photo
+            or royal.sticker
+            or royal.media
     ):
         await eor(event, "`Format Not Supported.`")
         return
@@ -39,7 +39,7 @@ async def convert_to_image(event, client):
         try:
             c_time = time.time()
             downloaded_file_name = await event.client.download_media(
-                hell.media,
+                royal.media,
                 dwlpath,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(d, t, event, c_time, "`Downloading...`")
@@ -54,16 +54,16 @@ async def convert_to_image(event, client):
     if not os.path.exists(downloaded_file_name):
         await eor(event, "Download Unsucessfull :(")
         return
-    if hell and hell.photo:
-        hell_final = downloaded_file_name
-    elif hell.sticker and hell.sticker.mime_type == "application/x-tgsticker":
+    if royal and royal.photo:
+        royal_final = downloaded_file_name
+    elif royal.sticker and royal.sticker.mime_type == "application/x-tgsticker":
         rpath = downloaded_file_name
         image_name20 = os.path.join(dwlpath, "omk.png")
         cmd = f"lottie_convert.py --frame 0 -if lottie -of png {downloaded_file_name} {image_name20}"
         stdout, stderr = (await runcmd(cmd))[:2]
         os.remove(rpath)
-        hell_final = image_name20
-    elif hell.sticker and hell.sticker.mime_type == "image/webp":
+        royal_final = image_name20
+    elif royal.sticker and royal.sticker.mime_type == "image/webp":
         pathofsticker2 = downloaded_file_name
         image_new_path = dwlpath + "image.png"
         im = Image.open(pathofsticker2)
@@ -71,8 +71,8 @@ async def convert_to_image(event, client):
         if not os.path.exists(image_new_path):
             await eor(event, "`Unable To Fetch Shot.`")
             return
-        hell_final = image_new_path
-    elif hell.audio:
+        royal_final = image_new_path
+    elif royal.audio:
         omk_p = downloaded_file_name
         hmmyes = dwlpath + "semx.mp3"
         imgpath = dwlpath + "semxy.jpg"
@@ -82,8 +82,8 @@ async def convert_to_image(event, client):
         if not os.path.exists(imgpath):
             await eor(event, "`Unable To Fetch Shot.`")
             return
-        hell_final = imgpath
-    elif hell.gif or hell.video or hell.video_note:
+        royal_final = imgpath
+    elif royal.gif or royal.video or royal.video_note:
         omk_p2 = downloaded_file_name
         jpg_file = os.path.join(dwlpath, "image.jpg")
         await take_screen_shot(omk_p2, 0, jpg_file)
@@ -91,8 +91,8 @@ async def convert_to_image(event, client):
         if not os.path.exists(jpg_file):
             await eor(event, "`Couldn't Fetch shot`")
             return
-        hell_final = jpg_file
-    return hell_final
+        royal_final = jpg_file
+    return royal_final
 
 
 async def take_ss(
@@ -113,7 +113,7 @@ async def take_ss(
 
 
 def tgs_to_gif(sticker_path: str, quality: int = 256) -> str:                  
-    semx = os.path.join(dwlpath, "hellbottgs.gif")
+    semx = os.path.join(dwlpath, "royalbottgs.gif")
     with open(semx, 'wb') as t_g:
         lottie.exporters.gif.export_gif(lottie.parsers.tgs.parse_tgs(sticker_path), t_g, quality, 1)
     os.remove(sticker_path)
@@ -178,4 +178,4 @@ async def VSticker(event, file):
     return "VideoSticker.webm"
 
 
-# hellbot
+# royalbot
