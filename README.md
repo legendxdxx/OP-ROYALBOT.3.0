@@ -6,17 +6,17 @@
 <h6 align="center">
   <b>⚡ ROYALBot Is One Of The lightest , fasted & Smoothest Bot On Telegram Based on Python⚡</b>
 </h6>
-<a href="https://github.com/ROYALBOY871/Userbot/graphs/contributors" alt="GitHub contributors"> <img src="https://img.shields.io/github/contributors/ROYALBOY871/Userbot?style=flat&logo=github" /> </a>
+<a href="https://github.com/legendxdxx/OP-ROYALBOT.3.0/graphs/contributors" alt="GitHub contributors"> <img src="https://img.shields.io/github/contributors/legendxdxx/OP-ROYALBOT.3.0?style=flat&logo=github" /> </a>
 
 ![github card](https://github-readme-stats.vercel.app/api/pin/?username=legendxdxx&repo=Userbot&theme=dark)
 
-<a href="https://github.com/ROYALBOY871/Userbot/network/members" alt="GitHub forks"> <img src="https://img.shields.io/github/forks/ROYALBOY871/Userbot?label=Forks&logo=github" /> </a>
+<a href="https://github.com/legendxdxx/OP-ROYALBOT.3.0/network/members" alt="GitHub forks"> <img src="https://img.shields.io/github/forks/ROYALBOY871/Userbot?label=Forks&logo=github" /> </a>
 [![](https://img.shields.io/badge/ROYAL-v2.0-red)](#)
-[![Stars](https://img.shields.io/github/stars/ROYALBOY871/Userbot?style=flat-square&color=green)](https://github.com/legendxdxx/rdnspambot/stargazers)
-[![Forks](https://img.shields.io/github/forks/ROYALBOY871/Userbot?style=flat-square&color=orange)](https://github.com/ROYALBOY871/Userbot/fork)
-[![Size](https://img.shields.io/github/repo-size/ROYALBOY871/Userbot?style=flat-square&color=green)](https://github.com/ROYALBOY871/Userbot/)
+[![Stars](https://img.shields.io/github/stars/legendxdxx/OP-ROYALBOT.3.0?style=flat-square&color=green)](https://github.com/legendxdxx/OP-ROYALBOT.3.0/stargazers)
+[![Forks](https://img.shields.io/github/forks/legendxdxx/OP-ROYALBOT.3.0?style=flat-square&color=orange)](https://github.com/legendxdxx/OP-ROYALBOT.3.0/fork)
+[![Size](https://img.shields.io/github/repo-size/legendxdxx/OP-ROYALBOT.3.0?style=flat-square&color=green)](https://github.com/legendxdxx/OP-ROYALBOT.3.0/)
 [![Python](https://img.shields.io/badge/Python-v3.10.2-blue)](https://www.python.org/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/ROYALBOY871/Userbot/graphs/commit-activity)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/legendxdxx/OP-ROYALBOT.3.0/graphs/commit-activity)
 
 ## 
       #𝗣𝗔𝗥𝗧_𝗢𝗙_𝗥𝗢𝗬𝗔𝗟⚡™
@@ -38,7 +38,7 @@
 
 - Clone the repo. 
 
-git clone https://github.com/ROYALBOY871/ROYALUSERBOT.git
+git clone https://github.com/legendxdxx/OP-ROYALBOT.3.0.git
 - Open Cloned Folder.
 
 cd Plugins 
@@ -65,7 +65,7 @@ bash start.sh
   
 <b>
 
-Poject [ROYALBOT](https://github.com/ROYALBOY871/Userbot) is free software: you can redistribute it and/or modify
+Poject [OP-ROYALBOT.3.0](https://github.com/legendxdxx/OP-ROYALBOT.3.0) is free software: you can redistribute it and/or modify
 
 it under the terms of the GNU General Public License as published by
 
