@@ -151,4 +151,4 @@ async def unsave_stcr(hstcr):
         LOGS.info(e)
 
 
-# hellbot
+# royalbot
