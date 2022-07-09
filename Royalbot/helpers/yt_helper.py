@@ -3,10 +3,10 @@ import os
 import requests
 import urllib.parse
 
-from hellbot.utils.extras import delete_hell as eod
+from royalbot.utils.extras import delete_hell as eod
 
 
-class Hell_YTS:
+class ROYAL_YTS:
     def __init__(self, search_terms: str, max_results=None):
         self.search_terms = search_terms
         self.max_results = max_results
