@@ -9,10 +9,10 @@ from pathlib import Path
 from telethon import TelegramClient, events
 from telethon.errors import MessageIdInvalidError, MessageNotModifiedError
 
-from hellbot import LOGS, bot, tbot
-from hellbot.clients import H2, H3, H4, H5
-from hellbot.config import Config
-from hellbot.helpers import *
+from royalbot import LOGS, bot, tbot
+from royalbot.clients import R2, R3, R4, R5
+from royalbot.config import Config
+from royalbot.helpers import *
 
 
 # admin cmd or normal user cmd
@@ -37,12 +37,12 @@ def admin_cmd(pattern=None, command=None, **args):
                 CMD_LIST.update({file_test: [cmd]})
         else:
             if len(Config.HANDLER) == 2:
-                hellreg = "^" + Config.HANDLER
+                royalreg = "^" + Config.HANDLER
                 reg = Config.HANDLER[1]
             elif len(Config.HANDLER) == 1:
-                hellreg = "^\\" + Config.HANDLER
+                royalreg = "^\\" + Config.HANDLER
                 reg = Config.HANDLER
-            args["pattern"] = re.compile(hellreg + pattern)
+            args["pattern"] = re.compile(royalreg + pattern)
             if command is not None:
                 cmd = reg + command
             else:
@@ -56,7 +56,7 @@ def admin_cmd(pattern=None, command=None, **args):
 
     args["outgoing"] = True
     # decides that other users can use it or not
-    # hellbot outgoing
+    # royalbot outgoing
     if allow_sudo:
         args["from_users"] = list(Config.SUDO_USERS)
         # Mutually exclusive with outgoing (can only set one of either).
@@ -68,14 +68,14 @@ def admin_cmd(pattern=None, command=None, **args):
         args["outgoing"] = True
 
     # blacklisted chats. 
-    # hellbot will not respond in these chats.
+    # royalbot will not respond in these chats.
     args["blacklist_chats"] = True
     black_list_chats = list(Config.BL_CHAT)
     if black_list_chats:
         args["chats"] = black_list_chats
 
     # blacklisted chats.
-    # hellbot will not respond in these chats.
+    # royalbot will not respond in these chats.
     if "allow_edited_updates" in args and args["allow_edited_updates"]:
         del args["allow_edited_updates"]
 
@@ -105,10 +105,10 @@ def sudo_cmd(pattern=None, command=None, **args):
                 SUDO_LIST.update({file_test: [cmd]})
         else:
             if len(Config.SUDO_HANDLER) == 2:
-                hellreg = "^" + Config.SUDO_HANDLER
+                royalreg = "^" + Config.SUDO_HANDLER
                 reg = Config.SUDO_HANDLER[1]
             elif len(Config.SUDO_HANDLER) == 1:
-                hellreg = "^\\" + Config.SUDO_HANDLER
+                royalreg = "^\\" + Config.SUDO_HANDLER
                 reg = Config.HANDLER
             args["pattern"] = re.compile(hellreg + pattern)
             if command is not None:
@@ -123,7 +123,7 @@ def sudo_cmd(pattern=None, command=None, **args):
                 SUDO_LIST.update({file_test: [cmd]})
     args["outgoing"] = True
     # outgoing check
-    # hellbot
+    # royalbot
     if allow_sudo:
         args["from_users"] = list(Config.SUDO_USERS)
         # Mutually exclusive with outgoing (can only set one of either).
@@ -133,17 +133,17 @@ def sudo_cmd(pattern=None, command=None, **args):
     elif "incoming" in args and not args["incoming"]:
         args["outgoing"] = True
     # blacklisted chats
-    # hellbot won't respond here
+    # royalbot won't respond here
     args["blacklist_chats"] = True
     black_list_chats = list(Config.BL_CHAT)
     if black_list_chats:
         args["chats"] = black_list_chats
     # blacklisted chats
-    # hellbot won't respond here
+    # royalbot won't respond here
     if "allow_edited_updates" in args and args["allow_edited_updates"]:
         del args["allow_edited_updates"]
     # outgoing check
-    # hellbot
+    # royalbot
     return events.NewMessage(**args)
 
 
@@ -155,14 +155,14 @@ def on(**args):
         async def wrapper(event):
             await func(event)
         bot.add_event_handler(wrapper, events.NewMessage(**args))
-        if H2:
-            H2.add_event_handler(wrapper, events.NewMessage(**args))
-        if H3:
-            H3.add_event_handler(wrapper, events.NewMessage(**args))
-        if H4:
-            H4.add_event_handler(wrapper, events.NewMessage(**args))
-        if H5:
-            H5.add_event_handler(wrapper, events.NewMessage(**args))
+        if R2:
+            R2.add_event_handler(wrapper, events.NewMessage(**args))
+        if R3:
+            R3.add_event_handler(wrapper, events.NewMessage(**args))
+        if R4:
+            R4.add_event_handler(wrapper, events.NewMessage(**args))
+        if R5:
+            R5.add_event_handler(wrapper, events.NewMessage(**args))
         return wrapper
 
     return decorater
@@ -221,14 +221,14 @@ def register(**args):
         if not disable_edited:
             bot.add_event_handler(func, events.MessageEdited(**args))
         bot.add_event_handler(func, events.NewMessage(**args))
-        if H2:
-            H2.add_event_handler(func, events.NewMessage(**args))
+        if R2:
+            R2.add_event_handler(func, events.NewMessage(**args))
         if H3:
-            H3.add_event_handler(func, events.NewMessage(**args))
-        if H4:
-            H4.add_event_handler(func, events.NewMessage(**args))
-        if H5:
-            H5.add_event_handler(func, events.NewMessage(**args))
+            R3.add_event_handler(func, events.NewMessage(**args))
+        if R4:
+            R4.add_event_handler(func, events.NewMessage(**args))
+        if R5:
+            R5.add_event_handler(func, events.NewMessage(**args))
         try:
             LOAD_PLUG[file_test].append(func)
         except Exception:
@@ -297,14 +297,14 @@ def command(**args):
         if allow_edited_updates:
             bot.add_event_handler(func, events.MessageEdited(**args))
         bot.add_event_handler(func, events.NewMessage(**args))
-        if H2:
-            H2.add_event_handler(func, events.NewMessage(**args))
-        if H3:
-            H3.add_event_handler(func, events.NewMessage(**args))
-        if H4:
-            H4.add_event_handler(func, events.NewMessage(**args))
-        if H5:
-            H5.add_event_handler(func, events.NewMessage(**args))
+        if R2:
+            R2.add_event_handler(func, events.NewMessage(**args))
+        if R3:
+            R3.add_event_handler(func, events.NewMessage(**args))
+        if R4:
+            R4.add_event_handler(func, events.NewMessage(**args))
+        if R5:
+            R5.add_event_handler(func, events.NewMessage(**args))
         try:
             LOAD_PLUG[file_test].append(func)
         except BaseException:
@@ -313,4 +313,4 @@ def command(**args):
 
     return decorator
 
-# hellbot
+# royalbot
