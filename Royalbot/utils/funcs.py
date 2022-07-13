@@ -17,9 +17,9 @@ from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
-from hellbot import *
-from hellbot.helpers import *
-from hellbot.config import Config
+from royalbot import *
+from royalbot.helpers import *
+from royalbot.config import Config
 
 
 # just a small shit for big works
@@ -34,8 +34,8 @@ async def is_admin(client, chat_id, user_id):
     if not str(chat_id).startswith("-100"):
         return False
     try:
-        hellboy = await client(GetParticipantRequest(channel=chat_id, user_id=user_id))
-        chat_participant = hellboy.participant
+        royalboy = await client(GetParticipantRequest(channel=chat_id, user_id=user_id))
+        chat_participant = royalboy.participant
         if isinstance(
             chat_participant, (ChannelParticipantCreator, ChannelParticipantAdmin)
         ):
@@ -45,4 +45,4 @@ async def is_admin(client, chat_id, user_id):
     else:
         return False
 
-# hellbot
+# royalbot
