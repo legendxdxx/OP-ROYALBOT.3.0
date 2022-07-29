@@ -63,7 +63,7 @@ async def start_royalbot():
         Config.BOT_USERNAME = f"@{tbot_id.username}"
         bot.tgbot = tbot
         LOGS.info("••• Starting RoyalBot •••")
-        C1 = await royals(Config.ROYALBOT_SESSION, bot, "HELLBOT_SESSION")
+        C1 = await royals(Config.ROYALBOT_SESSION, bot, "ROYAL_SESSION")
         C2 = await royals(Config.SESSION_2, R2, "SESSION_2")
         C3 = await royals(Config.SESSION_3, R3, "SESSION_3")
         C4 = await royals(Config.SESSION_4, R4, "SESSION_4")
