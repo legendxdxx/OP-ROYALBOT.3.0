@@ -34,7 +34,7 @@
 <h7 align="center">
 <b>  Deploy on Terminal:-
 
- ## Deploy Locally
+ ## Deploy Locaally
 
 - Clone the repo. 
 
